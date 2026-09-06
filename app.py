@@ -6,9 +6,7 @@ st.set_page_config(page_title="Country Development Dashboard",layout="wide")
 
 @st.cache_data
 def load_data():
-    df = pd.read_csv("life_expectancy_gdp.csv")
-    df = df.rename(columns={"Entity":"country","Year":"year","Life expectancy at birth":"lifeExp","GDP per capita":"gdpPercap","Population":"pop","World region according to OWID":"continent"})
-    df = df.dropna(subset=["country","year","lifeExp","gdpPercap","pop","continent"])
+    df = px.data.gapminder()
     return df
 
 df = load_data()
